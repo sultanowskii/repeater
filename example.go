@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"math/rand"
+	"time"
 
 	"github.com/sultanowskii/repeater/pkg/repeater"
 )
@@ -18,15 +19,15 @@ func importantFunction() error {
 
 func main() {
 	r := repeater.NewRepeater(
-		repeater.WithMillisecondsInterval(100),
+		repeater.WithInterval(100*time.Millisecond),
 		repeater.WithRetries(5),
 	)
 
-	q, err := r.Run(importantFunction)
+	attempts, err := r.Run(importantFunction)
 	if err == nil {
-		fmt.Printf("successful run within %d attempt(s)\n", q)
+		fmt.Printf("successful run within %d attempt(s)\n", attempts)
 	} else {
-		fmt.Printf("'%v' after %d attempt(s)\n", err, q)
+		fmt.Printf("'%v' after %d attempt(s)\n", err, attempts)
 	}
 
 	total, success := r.RunStats(importantFunction)

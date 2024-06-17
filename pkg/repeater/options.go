@@ -4,19 +4,11 @@ import "time"
 
 type repeaterOption func(r *Repeater)
 
-// WithInterval sets interval (in seconds) between tries.
+// WithInterval sets interval (in seconds) between attempts.
 // Defaults to 0.
-func WithSecondsInterval(n int) repeaterOption {
+func WithInterval(interval time.Duration) repeaterOption {
 	return func(r *Repeater) {
-		r.interval = time.Duration(n) * time.Second
-	}
-}
-
-// WithInterval sets interval (in milliseconds) between tries.
-// Defaults to 0.
-func WithMillisecondsInterval(n int) repeaterOption {
-	return func(r *Repeater) {
-		r.interval = time.Duration(n) * time.Millisecond
+		r.interval = interval
 	}
 }
 

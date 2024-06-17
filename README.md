@@ -2,7 +2,7 @@
 
 <img src="assets/repeater.png" alt="repeater.png" width="200px"/> <!-- markdownlint-disable MD033 -->
 
-Repeat `f()` no more than `N` times with interval of `M` until `C` doesn't say the result is successful.
+Repeats `f()` no more than `N` times with interval of `M` until `C` doesn't say the result is successful.
 
 ## Usage
 

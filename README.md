@@ -17,8 +17,10 @@ r := repeater.NewRepeater(
 attempts, err := r.Run(importantFunction)
 ```
 
+By default, the "success" occurs when function returns `nil` as `error` (`IsNoError` checker). You can change this behavior by adding `WithResultChecker` option (see [pkg/repeater/result_checker.go](pkg/repeater/result_checker.go)).
+
 ## Note
 
-Gopher image is made using [https://quasilyte.dev/gopherkon](https://quasilyte.dev/gopherkon) ([github](https://github.com/quasilyte/gopherkon))
+Gopher image is generated with [https://quasilyte.dev/gopherkon](https://quasilyte.dev/gopherkon) ([github](https://github.com/quasilyte/gopherkon))
 
 Rifle image is taken from [wikipedia](https://en.m.wikipedia.org/wiki/File:Winchester_rifle.svg)
